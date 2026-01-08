@@ -94,3 +94,137 @@
 
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MI Ma'arif Terpadu Roudlotul Muslimin</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-green-700 text-white">
+    <div class="max-w-7xl mx-auto px-4 py-6">
+      <h1 class="text-2xl font-bold">MI Ma'arif Terpadu Roudlotul Muslimin</h1>
+      <p class="text-sm">NSM: 111233200196 | NPSN: 70010117</p>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="bg-green-600 text-white">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex gap-6 text-sm">
+      <a href="#beranda" class="hover:underline">Beranda</a>
+      <a href="#profil" class="hover:underline">Profil</a>
+      <a href="#ppdb" class="hover:underline">PPDB Online</a>
+      <a href="#kontak" class="hover:underline">Kontak</a>
+      <a href="#admin" class="hover:underline ml-auto">Login Admin</a>
+    </div>
+  </nav>
+
+  <!-- Beranda -->
+  <section id="beranda" class="max-w-7xl mx-auto px-4 py-12">
+    <h2 class="text-xl font-semibold mb-4">Selamat Datang</h2>
+    <p>
+      Selamat datang di website resmi <strong>MI Ma'arif Terpadu Roudlotul Muslimin</strong>.
+      Website ini menjadi media informasi dan layanan madrasah untuk masyarakat.
+    </p>
+  </section>
+
+  <!-- Profil -->
+  <section id="profil" class="bg-white">
+    <div class="max-w-7xl mx-auto px-4 py-12">
+      <h2 class="text-xl font-semibold mb-4">Profil Madrasah</h2>
+      <ul class="space-y-2">
+        <li><strong>Nama Madrasah:</strong> MI Ma'arif Terpadu Roudlotul Muslimin</li>
+        <li><strong>Kepala Madrasah:</strong> Nur Hudrin, S.Pd.I</li>
+        <li><strong>Alamat:</strong> Suwawal, RT 07 RW 02, Kecamatan Mlonggo, Kabupaten Jepara</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PPDB Online -->
+  <section id="ppdb" class="max-w-7xl mx-auto px-4 py-12">
+    <h2 class="text-xl font-semibold mb-6">PPDB Online</h2>
+    <p class="mb-6">Silakan isi formulir di bawah ini untuk pendaftaran peserta didik baru.</p>
+
+    <form class="bg-white p-6 rounded-xl shadow-md max-w-xl">
+      <div class="mb-4">
+        <label class="block text-sm font-medium mb-1">Nama Lengkap</label>
+        <input type="text" class="w-full border rounded px-3 py-2" placeholder="Nama calon siswa" />
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-medium mb-1">Tempat, Tanggal Lahir</label>
+        <input type="text" class="w-full border rounded px-3 py-2" />
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-medium mb-1">Nama Orang Tua</label>
+        <input type="text" class="w-full border rounded px-3 py-2" />
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-medium mb-1">Nomor HP / WhatsApp</label>
+        <input type="text" class="w-full border rounded px-3 py-2" />
+      </div>
+      <button type="submit" class="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">
+        Kirim Pendaftaran
+      </button>
+    </form>
+
+    <p class="text-sm text-gray-500 mt-4">
+      *Form ini dapat dihubungkan ke Google Form atau database sesuai kebutuhan.
+    </p>
+  </section>
+
+  <!-- Kontak -->
+  <section id="kontak" class="bg-white">
+    <div class="max-w-7xl mx-auto px-4 py-12">
+      <h2 class="text-xl font-semibold mb-4">Kontak</h2>
+      <p>Alamat: Suwawal, RT 07 RW 02, Kecamatan Mlonggo, Kabupaten Jepara</p>
+    </div>
+  </section>
+
+  <!-- Login Admin -->
+  <section id="admin" class="max-w-7xl mx-auto px-4 py-12">
+    <h2 class="text-xl font-semibold mb-6">Login Admin</h2>
+    <div class="bg-white p-6 rounded-xl shadow-md max-w-md">
+      <div class="mb-4">
+        <label class="block text-sm font-medium mb-1">Username</label>
+        <input id="username" type="text" class="w-full border rounded px-3 py-2" />
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-medium mb-1">Password</label>
+        <input id="password" type="password" class="w-full border rounded px-3 py-2" />
+      </div>
+      <button onclick="loginAdmin()" class="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">
+        Login
+      </button>
+      <p id="loginMsg" class="text-sm mt-3"></p>
+    </div>
+  </section>
+
+  <script>
+    function loginAdmin() {
+      const user = document.getElementById('username').value;
+      const pass = document.getElementById('password').value;
+
+      // username & password default
+      if (user === 'admin' && pass === 'admin123') {
+        localStorage.setItem('adminLogin', 'true');
+        document.getElementById('loginMsg').innerHTML = 'Login berhasil. Anda masuk sebagai admin.';
+        document.getElementById('loginMsg').className = 'text-green-600 text-sm mt-3';
+      } else {
+        document.getElementById('loginMsg').innerHTML = 'Username atau password salah.';
+        document.getElementById('loginMsg').className = 'text-red-600 text-sm mt-3';
+      }
+    }
+  </script>
+
+  <!-- Footer -->
+  <footer class="bg-green-700 text-white text-center py-4 text-sm">
+    © 2026 MI Ma'arif Terpadu Roudlotul Muslimin
+  </footer>
+
+</body>
+</html>
